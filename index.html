@@ -5,8 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue JS</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
 </head>
 <body>
     <h1>Hello VueJS</h1>
+
+    <div id="app">
+        <div v-if="showBook">
+            <p>this site was written by {{ author }}- he is {{age}} years old- he is a/ an {{title}}</p>
+        </div>
+        <button @click="toggleShow">
+            <span v-if="showBook">Hide Content</span>
+            <span v-else>Show Content</span>
+        </button>
+
+        <p v-show="showBook">using v-show</p>
+        <!-- <button v-on:click="age++">Increase age</button>
+        <button @click="age--">decrease age</button>
+        <button @click="changeTitle">change title</button>
+        <button @click="changeTitleArg('Scientist')">change title</button> -->
+
+        
+    </div>
+    <div>
+        <p>{{author}}</p>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
