@@ -9,18 +9,20 @@ const app = Vue.createApp({
             age: 25,
             title: "Junior Front- End developer",
             showBook:false,
-            buttonInner:"Show Content"
+            buttonInner:"Show Content",
+            x:0,
+            y:0,
         }
     },
 
     methods: {
-        changeTitle(){
-            this.title= "Architect";
-        },
-        changeTitleArg(title){
-            this.title = title;
-        },
-        toggleShow(){
+        // changeTitle(){
+        //     this.title= "Architect";
+        // },
+        // changeTitleArg(title){
+        //     this.title = title;
+        // },
+        // toggleShow(){
             // if(this.showBook === false){
             //     this.showBook = true;
             //     this.buttonInner = "Hide Content";
@@ -28,7 +30,21 @@ const app = Vue.createApp({
             //     this.showBook = false;
             //     this.buttonInner = "Show Content";
             // }
-            this.showBook = !this.showBook;
+        //     this.showBook = !this.showBook;
+        // }
+
+
+        eventHandler(e, number) {
+            console.log(e, e.type);
+            if(number){
+                console.log('====================================');
+                console.log(number);
+                console.log('====================================');
+            }
+        },
+        mouseMoveHandler(e){
+            this.x = e.offsetX;
+            this.y = e.offsetY;
         }
     }
 });

@@ -7,11 +7,21 @@
     <title>Vue JS</title>
     <script src="https://unpkg.com/vue@3.0.2"></script>
 </head>
+<style>
+    .box{
+        width: 300px;
+        margin: 20px;
+        padding: 50px;
+        display: inline-block;
+        text-align: center;
+        border: 1px solid;
+    }
+</style>
 <body>
     <h1>Hello VueJS</h1>
 
     <div id="app">
-        <div v-if="showBook">
+        <!-- <div v-if="showBook">
             <p>this site was written by {{ author }}- he is {{age}} years old- he is a/ an {{title}}</p>
         </div>
         <button @click="toggleShow">
@@ -19,11 +29,16 @@
             <span v-else>Show Content</span>
         </button>
 
-        <p v-show="showBook">using v-show</p>
+        <p v-show="showBook">using v-show</p> -->
         <!-- <button v-on:click="age++">Increase age</button>
         <button @click="age--">decrease age</button>
         <button @click="changeTitle">change title</button>
         <button @click="changeTitleArg('Scientist')">change title</button> -->
+
+        <div class="box" v-on:mouseover="eventHandler($event,5)">mouse over (enter)</div>
+        <div class="box" @mouseleave="eventHandler">mouse leave</div>
+        <div class="box" v-on:dblclick="eventHandler">double click</div>
+        <div class="box" @mousemove="mouseMoveHandler">mouse move: {{x}} - {{y}} </div>
 
         
     </div>
