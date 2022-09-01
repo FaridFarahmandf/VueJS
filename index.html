@@ -16,9 +16,37 @@
         text-align: center;
         border: 1px solid;
     }
+    ul{
+        margin: 0 auto;
+        padding: 0;
+        max-width: 80%;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    ul li{
+        box-shadow: 1px 1px 10px #ddd;
+        list-style: none;
+        text-align: center;
+        width: 300px;
+        padding: 10px;
+        display: inline-block;
+    }
+    img{
+        width: 150px;
+        height: 200px;
+    }
+    li{
+        background-color: rgb(236, 77, 77);
+    }
+    li.fav{
+        background-color: rgb(115, 214, 112);
+        color: #eee;
+    }
 </style>
 <body>
-    <h1>Hello VueJS</h1>
+    <h1 style="text-align: center;">Hello VueJS</h1>
 
     <div id="app">
         <!-- <div v-if="showBook">
@@ -35,16 +63,24 @@
         <button @click="changeTitle">change title</button>
         <button @click="changeTitleArg('Scientist')">change title</button> -->
 
-        <div class="box" v-on:mouseover="eventHandler($event,5)">mouse over (enter)</div>
+        <!-- <div class="box" v-on:mouseover="eventHandler($event,5)">mouse over (enter)</div>
         <div class="box" @mouseleave="eventHandler">mouse leave</div>
         <div class="box" v-on:dblclick="eventHandler">double click</div>
-        <div class="box" @mousemove="mouseMoveHandler">mouse move: {{x}} - {{y}} </div>
+        <div class="box" @mousemove="mouseMoveHandler">mouse move: {{x}} - {{y}} </div> -->
 
-        
+        <ul>
+            <li v-for="book in filteredBooks"  v-on:click="toggleClass(book)" v-bind:class="{ fav: book.isFav}">
+                <img v-bind:src="book.img" :alt="book.title">
+                <h2>
+                    {{book.author}}
+                </h2>
+                <p>
+                    {{book.title}}
+                </p>
+            </li>
+        </ul>
     </div>
-    <div>
-        <p>{{author}}</p>
-    </div>
+    
 
     <script src="app.js"></script>
 </body>
